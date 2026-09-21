@@ -1,4 +1,39 @@
-﻿#include <stdio.h>
+#include <stdio.h>
+
+
+int returnAvtomorf(int x)
+{
+    int tens = 10;
+    int z = x * x;
+    while (z != 0)
+    {
+        if ((x >= tens and x < tens * 10))
+        {
+            tens = tens * 10;
+            if (z % tens == x)
+            {
+                printf("%d - %d\n", x, z);
+                z = 0;
+            }
+            else {
+                z = 0;
+            }
+        }
+        else if (x < tens)
+        {
+            if (z % tens == x)
+            {
+                printf("%d - %d\n", x, z);
+            }
+            z = 0;
+        }
+        else
+        {
+            tens = tens * 10;
+        }
+    }
+    return x;
+}
 int main()
 {
     int i=1, x;
@@ -6,12 +41,11 @@ int main()
     scanf_s("%d", &x);
     while (i < x) 
     {
-        int z = i * i;
-        if (z % 10 == i or z % 100 == i or z % 1000 == i or z % 10000 == i)
-        {
-            printf("%d - %d\n", i,z);
-        }
+    returnAvtomorf(i);
         i += 1;
     }
+    
+
+    return 0;
 }
 
